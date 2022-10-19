@@ -5,14 +5,14 @@ const limit: i32 = 4000000;
 fn fib() i32 {
     var a: i32 = 0;
     var b: i32 = 1;
-    var c: i32 = 0;
+    var aux: i32 = 0;
     var result: i32 = 0;
     while (b < limit) {
-        c = b + a;
-        a = b;
-        b = c;
-        if (@mod(c, 2) == 0) {
-            result += c;
+        aux = b;
+        b += a;
+        a = aux;
+        if (@mod(b, 2) == 0) {
+            result += b;
         }
     }
     return result;
