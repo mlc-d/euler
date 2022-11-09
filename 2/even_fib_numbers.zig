@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const limit: i32 = 4000000;
+const limit: i32 = 4_000_000;
 
 fn fib() i32 {
     var a: i32 = 0;
