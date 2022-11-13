@@ -1,8 +1,6 @@
 const std = @import("std");
-const time = @import("std").time;
 
 pub fn main() !void {
-    var start: i64 = time.timestamp();
     // 19 es el número primo más grande menor que 20, por lo que es
     // una buena referencia para probar candidatos.
     var b: u64 = 20;
@@ -22,6 +20,4 @@ pub fn main() !void {
         }
         b += 2; // como 19 multiplicado por un número impar siempre da impar, sólo debemos revisar sus múltiplos pares.
     }
-    var end: i64 = time.timestamp();
-    std.debug.print("{}\n{}\n", .{ end, start });
 }
