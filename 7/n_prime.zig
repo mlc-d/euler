@@ -1,5 +1,4 @@
 const std = @import("std");
-const allocator = std.mem.Allocator;
 
 fn primeFactory() u64 {
     // zig's comptime constrains make it difficult to work with
@@ -16,7 +15,7 @@ fn primeFactory() u64 {
     var flag: bool = false;
     var candidate: u64 = 5; // just to start with another prime.
     var index: usize = 2;
-    var x: u64 = undefined;
+    var sqrt: u64 = undefined;
 
     while (primes[n - 1] == 0) { // in other words, as soon as we find the nth prime.
         flag = true;
@@ -26,8 +25,8 @@ fn primeFactory() u64 {
             }
             // as previously seen in exercise 3, this type casting is a bit boilerplate, but it just works (tm).
             // cast candidate to float -> then square root it -> then cast the result back to u64.
-            x = @floatToInt(u64, @sqrt(@intToFloat(f64, candidate))) + 1;
-            if (@mod(candidate, prime) == 0 and prime <= x) {
+            sqrt = @floatToInt(u64, @sqrt(@intToFloat(f64, candidate))) + 1;
+            if (@mod(candidate, prime) == 0 and prime <= sqrt) {
                 flag = false;
                 break;
             }
